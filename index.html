@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fresh Basket</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <div class="brand-wrap">
+          <div class="brand-mark">F</div>
+          <div>
+            <p class="brand-name">Fresh Basket</p>
+            <span class="brand-tag">Groceries & essentials</span>
+          </div>
+        </div>
+
+        <nav class="main-nav">
+          <a href="#home">Home</a>
+          <a href="#categories">Categories</a>
+          <a href="#offers">Offers</a>
+          <a href="#checkout">Checkout</a>
+        </nav>
+
+        <button id="cartButton" class="primary-btn cart-button" type="button">
+          <span>Cart</span>
+          <span id="cartBadge" class="cart-badge">0</span>
+        </button>
+      </header>
+
+      <section class="hero" id="home">
+        <div class="hero-copy">
+          <span class="eyebrow">Fresh everyday</span>
+          <h1>Groceries for your home, delivered fast.</h1>
+          <p>
+            Shop fruits, vegetables, pantry essentials, dairy, and daily essentials from trusted local and online stores.
+          </p>
+
+          <div class="hero-actions">
+            <button class="primary-btn">Shop Now</button>
+            <button class="secondary-btn">View Deals</button>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <div class="mini-header">
+            <span>Today's offer</span>
+            <span class="badge">30% off</span>
+          </div>
+          <h3>Farm Fresh Pack</h3>
+          <ul>
+            <li>Organic vegetables</li>
+            <li>Fresh fruits</li>
+            <li>Milk & dairy</li>
+          </ul>
+          <div class="hero-price">
+            <strong>₹649</strong>
+            <small>₹899</small>
+          </div>
+        </div>
+      </section>
+
+      <section class="category-section" id="categories">
+        <div class="section-title">
+          <h2>Shop by category</h2>
+        </div>
+
+        <div class="category-grid">
+          <div class="category-item">
+            <span>🥬</span>
+            <p>Vegetables</p>
+          </div>
+          <div class="category-item">
+            <span>🍎</span>
+            <p>Fruits</p>
+          </div>
+          <div class="category-item">
+            <span>🥛</span>
+            <p>Dairy</p>
+          </div>
+          <div class="category-item">
+            <span>🌾</span>
+            <p>Staples</p>
+          </div>
+          <div class="category-item">
+            <span>🥩</span>
+            <p>Protein</p>
+          </div>
+          <div class="category-item">
+            <span>🧼</span>
+            <p>Essentials</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="product-section" id="offers">
+        <div class="section-title">
+          <h2>Popular grocery picks</h2>
+        </div>
+
+        <div class="product-grid" id="productGrid"></div>
+      </section>
+
+      <section class="checkout-section" id="checkout">
+        <div class="section-title">
+          <h2>Your cart summary</h2>
+        </div>
+
+        <div class="checkout-card">
+          <div id="cartItems" class="cart-items"></div>
+
+          <div class="checkout-summary">
+            <div class="summary-row">
+              <span>Subtotal</span>
+              <strong id="subtotal">₹0</strong>
+            </div>
+            <div class="summary-row">
+              <span>Delivery</span>
+              <strong id="deliveryFee">₹40</strong>
+            </div>
+            <div class="summary-row total-row">
+              <span>Total</span>
+              <strong id="total">₹0</strong>
+            </div>
+            <button type="button" class="primary-btn checkout-btn" id="checkoutBtn">Proceed to Checkout</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="store-section">
+        <div class="section-title">
+          <h2>Buy from your favorite stores</h2>
+        </div>
+
+        <div class="store-grid">
+          <a class="store-card" href="https://www.amazon.in" target="_blank" rel="noreferrer">
+            <div class="store-logo amazon">A</div>
+            <div>
+              <h3>Amazon</h3>
+              <p>Groceries & household essentials</p>
+            </div>
+          </a>
+
+          <a class="store-card" href="https://www.flipkart.com" target="_blank" rel="noreferrer">
+            <div class="store-logo flipkart">F</div>
+            <div>
+              <h3>Flipkart</h3>
+              <p>Daily essentials and best deals</p>
+            </div>
+          </a>
+
+          <a class="store-card" href="https://www.blinkit.com" target="_blank" rel="noreferrer">
+            <div class="store-logo blinkit">B</div>
+            <div>
+              <h3>Blinkit</h3>
+              <p>Fast grocery delivery in minutes</p>
+            </div>
+          </a>
+        </div>
+      </section>
+    </div>
+
+    <aside id="cartDrawer" class="cart-drawer hidden" aria-label="Shopping cart drawer">
+      <div class="drawer-header">
+        <div>
+          <p class="drawer-title">Your cart</p>
+          <span id="drawerItemCount">0 items</span>
+        </div>
+        <button type="button" id="closeCart" class="icon-btn" aria-label="Close cart">✕</button>
+      </div>
+
+      <div id="cartDrawerItems" class="drawer-items"></div>
+
+      <div class="drawer-footer">
+        <div class="summary-row">
+          <span>Subtotal</span>
+          <strong id="drawerSubtotal">₹0</strong>
+        </div>
+        <div class="summary-row">
+          <span>Delivery</span>
+          <strong>₹40</strong>
+        </div>
+        <div class="summary-row total-row">
+          <span>Total</span>
+          <strong id="drawerTotal">₹0</strong>
+        </div>
+        <button type="button" id="finalCheckoutBtn" class="primary-btn full-btn">Buy Now</button>
+      </div>
+    </aside>
+
+    <div id="cartOverlay" class="cart-overlay hidden"></div>
+
+    <div id="checkoutModal" class="checkout-modal hidden" aria-modal="true" role="dialog" aria-labelledby="checkoutTitle">
+      <div class="modal-card">
+        <div class="modal-header">
+          <div>
+            <p class="eyebrow modal-eyebrow">Secure checkout</p>
+            <h3 id="checkoutTitle">Complete your order</h3>
+          </div>
+          <button type="button" id="closeModal" class="icon-btn" aria-label="Close checkout">✕</button>
+        </div>
+
+        <form id="checkoutForm" class="checkout-form">
+          <div class="field-row">
+            <label>
+              Full name
+              <input type="text" id="customerName" name="customerName" placeholder="Enter your name" required />
+            </label>
+          </div>
+
+          <div class="field-row two-col">
+            <label>
+              Phone
+              <input type="tel" id="customerPhone" name="customerPhone" placeholder="98765 43210" required />
+            </label>
+            <label>
+              Delivery slot
+              <select id="deliveryTime" name="deliveryTime" required>
+                <option value="Today, 6:00 PM - 8:00 PM">Today, 6:00 PM - 8:00 PM</option>
+                <option value="Tomorrow, 9:00 AM - 12:00 PM">Tomorrow, 9:00 AM - 12:00 PM</option>
+                <option value="Tomorrow, 4:00 PM - 7:00 PM">Tomorrow, 4:00 PM - 7:00 PM</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="field-row">
+            <label>
+              Delivery address
+              <textarea id="customerAddress" name="customerAddress" rows="3" placeholder="House no, street, locality, city" required></textarea>
+            </label>
+          </div>
+
+          <div class="field-row">
+            <label>
+              Payment method
+              <select id="paymentMethod" name="paymentMethod" required>
+                <option value="UPI">UPI</option>
+                <option value="Card">Debit/Credit Card</option>
+                <option value="Cash on Delivery">Cash on Delivery</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="order-box">
+            <div class="summary-row">
+              <span>Items</span>
+              <strong id="modalItemCount">0</strong>
+            </div>
+            <div class="summary-row">
+              <span>Subtotal</span>
+              <strong id="modalSubtotal">₹0</strong>
+            </div>
+            <div class="summary-row">
+              <span>Delivery</span>
+              <strong>₹40</strong>
+            </div>
+            <div class="summary-row total-row">
+              <span>Total</span>
+              <strong id="modalTotal">₹0</strong>
+            </div>
+          </div>
+
+          <button type="submit" class="primary-btn full-btn">Place Order</button>
+        </form>
+
+        <div id="orderSuccess" class="order-success hidden">
+          <div class="success-icon">✓</div>
+          <h4>Order placed successfully!</h4>
+          <p id="successMessage">Your groceries are on the way.</p>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
